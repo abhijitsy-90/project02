@@ -6,6 +6,9 @@ const collegeModel = require("../models/collegeModel");
 //=================================================create interns====================================================================
 
 const createIntern = async function (req, res) {
+   
+      
+    
     try {
         let data = req.body;
         const { name, email, mobile, collegeName,isDeleted } = data
@@ -29,7 +32,7 @@ const createIntern = async function (req, res) {
         if (usedEmail) return res.status(400).send({ status: false, message: "eamil is already used" });
 
         if (!mobile) {
-            console.log(mobile);
+            console.log(mobile);    
             return res.status(400).send({ status: false, message: "Mobile should be present" });
         }
         if (!/^[6-9]\d{9}$/.test(mobile)) {
@@ -45,7 +48,7 @@ const createIntern = async function (req, res) {
             return res.status(400).send({status:false,message:"You can't delete while creating"})
         }
 
-        const collegeId = getCollege._id
+        const collegeId = getCollege._id 
         const allInternData = { name, email, mobile, collegeName, collegeId }
 
         const intern = await internModel.create(allInternData)

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const collegeController = require('../controllers/collegeContoller');
 const internController = require('../controllers/internController');
 
@@ -19,7 +20,7 @@ router.get('/functionup/collegeDetails', collegeController.getCollege)
 
 //========================================if pathparams is wrong or empty================================================
 
-router.all('/*',function(req,res){  return res.status(404).send({status:false,message:"endpoint is required"})})
+router.all('/*',function(req,res){  return res.status(404).send({status:false,message:"check of path param"})})
 
 
 

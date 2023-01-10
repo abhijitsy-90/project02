@@ -5,6 +5,7 @@ const internModel = require("../models/internModel");
 //=====================================================create Colleges=======================================================
 
 const createCollege = async function (req, res) {
+    
     try {
         let data = req.body;
         if (Object.keys(data).length === 0) {
@@ -56,6 +57,9 @@ const createCollege = async function (req, res) {
 //=================================================GET colleges====================================================================
 
 const getCollege = async function (req, res) {
+                   
+                     
+                 
     try {
         let collegeName = req.query.collegeName;
 
@@ -69,7 +73,7 @@ const getCollege = async function (req, res) {
         if (internsData.length === 0) {
             return res.status(404).send({ status: false, msg: "Could not find Interns details for this college" });
         }
-
+               
         let allInterns = {                                          // both college and student details
             name: college.name,
             fullName: college.fullName,
